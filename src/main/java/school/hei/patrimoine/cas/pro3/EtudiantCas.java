@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static java.util.Calendar.APRIL;
-import static school.hei.patrimoine.modele.Argent.euro;
+import static school.hei.patrimoine.modele.Argent.ariary;
 import static school.hei.patrimoine.modele.Devise.MGA;
 
 public class EtudiantCas extends Cas {
@@ -43,10 +43,12 @@ public class EtudiantCas extends Cas {
 
     @Override
     public Set<Possession> possessions() {
-        var bmoi= new Compte("BMOI", LocalDate.of(2025, APRIL, 4), new Argent(0, MGA));
+        var bmoi= new Compte("BMOI", LocalDate.of(2025, APRIL, 1), new Argent(0, MGA));
 
-        var DebutEpargne= LocalDate.of(2025, APRIL, 30);
-        new FluxArgent("Epargne mensuel", bmoi, DebutEpargne, DebutEpargne.plusYears(1), 26, euro(500));
+        var DebutTravail= LocalDate.of(2025, APRIL, 27);
+        var finTravail= DebutTravail.plusYears(1);
+        new FluxArgent("Salaire", bmoi, DebutTravail, finTravail, 4, ariary(5_000_000));
+        new FluxArgent("Depense", bmoi, DebutTravail, finTravail, 27, ariary(-3_700_000));
 
         return Set.of(bmoi);
     }

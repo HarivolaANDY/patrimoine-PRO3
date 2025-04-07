@@ -18,6 +18,6 @@ public class CasSetSupplier implements Supplier<CasSet> {
             LocalDate.of(2025, APRIL, 7),
             LocalDate.of(2026, DECEMBER, 30),
             Map.of(new Personne("Etudiant"), 1.));
-    return new CasSet(Set.of(etudiantCas), ariary(30_027_999 ));
+    return new CasSet(Set.of(etudiantCas), ariary(11_900_000 ));
   }
 }
